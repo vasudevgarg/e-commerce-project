@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Product</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3>Add Product</h3>
+	<hr>
+	
+	
+	<form action="#" th:action="@{/admin/save}" th:object="${product}" method="POST">
+	
+		<!-- Add hidden input -->
+		<input type="hidden" th:field="*{id}" />
+		
+		<input type="text" placeholder="Name" th:field="*{name}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Description" th:field="*{description}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Price" th:field="*{price}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Stock" th:field="*{stock}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Eligible(true/false)" th:field="*{eligible}" class="form-control mb-4 col-4" />
+		
+		<button type="submit" class="btn btn-info col-2" >Save</button>
+	</form>
+	<hr>
+		<a th:href="@{/admin/home}">Back to Home Page</a>
+	</div>
+</body>
+
+</html>

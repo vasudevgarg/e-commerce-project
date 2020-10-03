@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head> 
+	<title>e-commerce Website</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<h1>Welcome to e-commerce project</h1>
+	
+	<hr>
+	<br>
+	<a th:href="@{/admin/login}" class="btn btn-primary btn-lg btn-block">
+		Login as Admin
+	</a>
+	
+	<br>
+	
+	<a th:href="@{/customer/login}" class="btn btn-primary btn-lg btn-block">
+		Login as Customer
+	</a>
+	
+	<br>
+	
+	<a th:href="@{/agent/login}" class="btn btn-primary btn-lg btn-block">
+		Login as Agent
+	</a>
+	
+</body>
+
+</html>

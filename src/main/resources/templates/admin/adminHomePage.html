@@ -1,0 +1,49 @@
+	<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head> 
+	<title>Admin Home Page</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<h2>Welcome to Admin Page</h2>
+	
+	<hr>
+	<br>
+	<a th:href="@{/admin/addProduct}" class="btn btn-primary btn-large col-4 mb-3">
+		Add Product
+	</a>
+	
+	<br>
+	
+	<a th:href="@{/admin/getProductList}" class="btn btn-primary btn-large col-4 mb-3">
+		View All Products
+	</a>
+	
+	<br>
+	
+	<a th:href="@{/admin/addCustomer}" class="btn btn-primary btn-large col-4 mb-3">
+		Add Customer
+	</a>
+	
+	<br>
+	
+	<a th:href="@{/admin/addAgent}" class="btn btn-primary btn-large col-4 mb-3">
+		Add Agent
+	</a>
+	<br>
+	<hr>
+	
+	<a href="/home" class="btn btn-danger col-2" >Logout</a>
+</body>
+
+</html>

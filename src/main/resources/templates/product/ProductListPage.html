@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product List</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3> Product List</h3>
+	<hr>
+	
+	
+	<a th:href="@{/admin/addProduct}" class="btn btn-primary btn-sm mb-3">
+		Add Product
+	</a>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Stock</th>
+				<th>Eligible</th>
+				<th>Action</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempProduct : ${productList}">
+				<td th:text="${tempProduct.name}"></td>
+				<td th:text="${tempProduct.description}"></td>
+				<td th:text="${tempProduct.price}"></td>
+				<td th:text="${tempProduct.stock}"></td>
+				<td th:text="${tempProduct.eligible}"></td>
+				<td>
+					<a th:href="@{/admin/updateProduct(productId=${tempProduct.id})}" class="btn btn-info">Update</a>
+					
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a th:href="@{/admin/home}">
+		Back To Home Page
+	</a>
+	</div>
+</body>
+
+</html>

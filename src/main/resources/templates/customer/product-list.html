@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product List</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3> Product List</h3>
+	<hr>
+	
+	
+	<a th:href="@{/customer/pastOrders(id=${modelClass.customer.id})}" class="btn btn-primary btn-sm mb-3">
+		Past Orders
+	</a>
+	
+	
+	<form action="#" th:action="@{/customer/buySelectedProducts}" th:object="${modelClass}" method="POST">
+	
+	<!-- Add hidden input -->
+	<input type="hidden" th:value="*{customer.id}" name="id" />	
+		
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<!--  <th>Select</th> -->
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Action</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempProduct : ${modelClass.productList}">
+				<td th:text="${tempProduct.name}"></td>
+				<td th:text="${tempProduct.description}"></td>
+				<td th:text="${tempProduct.price}"></td>
+				<td>
+					<a th:href="@{/customer/buyProducts(id=${modelClass.customer.id},productId=${tempProduct.id})}" class="btn btn-info">Buy</a>
+					
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	</form>
+	<br><hr>
+	<a href="/home" class="btn btn-danger col-2" >Logout</a>
+	</div>
+</body>
+
+</html>

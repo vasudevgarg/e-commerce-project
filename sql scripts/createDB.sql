@@ -1,0 +1,5 @@
+DROP DATABASE  IF EXISTS `ecommerceDB`;
+
+CREATE DATABASE  IF NOT EXISTS `ecommerceDB`;
+USE `ecommerceDB`;
+

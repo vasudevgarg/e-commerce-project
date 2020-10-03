@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Customer Past Orders</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3> Past Order List</h3>
+	<hr>
+	
+	
+	<a th:href="@{/customer/getProductList(id=${theCustomer.id})}" class="btn btn-primary btn-sm mb-3">
+		Back
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Order Id</th>
+				<th>Product Name</th>
+				<th>Description</th>
+				<th>Price</th>				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempOrder : ${customerOrders}">
+				<td th:text="${tempOrder.id}"></td>
+				<td th:text="${tempOrder.product.name}"></td>
+				<td th:text="${tempOrder.product.description}"></td>
+				<td th:text="${tempOrder.cost}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Customer</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3>Add New Customer</h3>
+	<hr>
+	
+	
+	<form action="#" th:action="@{/admin/saveCustomer}" th:object="${theCustomer}" method="POST">
+	
+		<!-- Add hidden input -->
+		<input type="hidden" th:field="*{id}" />
+		
+		<input type="text" placeholder="First Name" th:field="*{firstName}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Last Name" th:field="*{lastName}" class="form-control mb-4 col-4" />
+		<input type="text" placeholder="Mobile Number" th:field="*{mobNo}" class="form-control mb-4 col-4" />
+		
+		<button type="submit" class="btn btn-info col-2" >Save</button>
+	</form>
+	<hr>
+		<a th:href="@{/admin/home}">Back to Home Page</a>
+	</div>
+</body>
+
+</html>

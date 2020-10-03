@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Add Agent</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3>Add New Agent</h3>
+	<hr>
+	
+	
+	<form action="#" th:action="@{/admin/saveAgent}" th:object="${theAgent}" method="POST">
+		
+		<input type="text" placeholder="Username" th:field="*{username}" class="form-control mb-4 col-4" required />
+		<input type="password" placeholder="Password" th:field="*{password}" class="form-control mb-4 col-4" required />
+		
+		<button type="submit" class="btn btn-info col-2" >Save</button>
+	</form>
+	<hr>
+		<a th:href="@{/admin/home}">Back to Home Page</a>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Order List</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h3>Order List</h3>
+	<hr>
+	
+	
+	<a th:href="@{/home}" class="btn btn-danger btn-sm mb-3">
+		Logout
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Order ID</th>
+				<th>Customer Name</th>
+				<th>Status</th>
+				<th>Action</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempOrder : ${orderList}">
+				<td th:text="${tempOrder.id}"></td>
+				<td th:text="${tempOrder.customer.firstName}"></td>
+				<td th:switch="${tempOrder.status}">
+					<span th:case="'0'">Pending</span>
+					<span th:case="'1'">Accepted</span>
+					<span th:case="'2'">Delivered</span>
+					<span th:case="'3'">Cancelled</span>
+				</td>
+				<td>
+					<a th:href="@{/agent/updateOrderStatusToAccepted(orderId=${tempOrder.id})}" class="btn btn-info">Accepted</a>
+					<a th:href="@{/agent/updateOrderStatusToDelivered(orderId=${tempOrder.id})}" class="btn btn-info">Delivered</a>
+					<a th:href="@{/agent/updateOrderStatusToCancelled(orderId=${tempOrder.id})}" class="btn btn-info">Cancelled</a>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+
+</html>

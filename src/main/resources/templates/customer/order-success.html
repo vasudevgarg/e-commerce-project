@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product List</title>
+	
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+
+<body>
+	<h2> Your order has been placed successfully</h2>
+	<br>
+	<a th:href=@{/customer/pastOrders(id=${theCustomer.id})} class="btn btn-primary btn-sm mb-3">View Past Order</a>
+	<a th:href=@{/customer/getProductList(id=${theCustomer.id})} class="btn btn-primary btn-sm mb-3">View Products</a>
+
+</body>
+
+</html>
